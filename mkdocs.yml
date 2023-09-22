@@ -1,0 +1,117 @@
+# Sitename, Description, Site URL and Copyright
+site_name: !ENV [SITE_NAME, 'MkDocs Material Bug Report']
+site_description: 'A Bug Report'
+site_url: !ENV [CI_PAGES_URL, GP_URL, 'http://localhost']
+copyright: !ENV [SITE_COPYRIGHT, 'Copyright &copy; Strausmann']
+
+# Build and Content Directory
+site_dir: 'public'
+docs_dir: 'site'
+use_directory_urls: false
+
+# Include the Site Navigation
+INHERIT: navigation.yml
+
+# Theme Settings
+theme:
+  name: material
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      schema: light blue
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      accent: orange
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: light blue
+      accent: orange
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to system preference
+  font:
+    text: GothamBook
+  icon:
+    repo: fontawesome/brands/gitlab
+    edit: material/pencil 
+    view: material/eye
+  language: en
+  features:
+    - tabs
+    - instant: true
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - navigation.prune
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - search.share
+    - announce.dismiss
+    - content.tooltips
+    - content.tabs.link
+    - content.action.edit
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - meta
+  - pymdownx.tilde
+  - pymdownx.smartsymbols
+  - pymdownx.magiclink
+  - pymdownx.keys
+  - pymdownx.critic
+  - pymdownx.b64
+  - toc
+  - abbr
+  - attr_list
+  - pymdownx.snippets
+  - def_list
+  - md_in_html
+  - tables
+
+# MkDocs Material Theme Plugins
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  - tags:
+      tags_file: glossary.md
+  - git-revision-date-localized:
+      enable_creation_date: true
+      enabled: !ENV [CI_SERVER, true]
+      type: datetime
+      timezone: Europe/Berlin
+      locale: en
+      fallback_to_build_date: true
+  - meta
+  - glightbox
+  - git-authors:
+      enabled: !ENV [CI_SERVER, true]
+  - blog:
+      blog_dir: circulars
+      post_date_format: medium
+      post_url_date_format: yyyy/MM/dd
+      post_url_format: "{date}/{slug}"
+      post_excerpt_max_authors: 1
+      post_excerpt_max_categories: 5
+      post_readtime_words_per_minute: 150
+      archive: true
+      archive_url_format: "{date}"
+      archive_name: Overview
+      archive_toc: true
+      categories_toc: true

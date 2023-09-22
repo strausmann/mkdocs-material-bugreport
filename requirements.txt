@@ -1,0 +1,16 @@
+# Documentation static site generator & deployment tool
+mkdocs==1.5.3
+
+# Add your custom theme if not inside a theme_dir
+# (https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes)
+mkdocs-material==9.3.2
+
+# Dependencies to render the website needed by mkdocs.
+mkdocs-macros-plugin==1.0.1
+mkdocs-static-i18n==0.56
+mkdocs-redirects==1.2.1
+mkdocs-git-revision-date-localized-plugin==1.2.0
+mkdocs-git-authors-plugin==0.7.2
+mkdocs-glightbox==0.3.4
+pillow==9.5.0
+cairosvg==2.7.1

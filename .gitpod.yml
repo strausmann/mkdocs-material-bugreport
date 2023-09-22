@@ -1,0 +1,28 @@
+---
+ports:
+  - name: Website MD Book
+    onOpen: notify
+    port: 3000
+    visibility: public
+    description: Preview of the MkDocs Website
+
+tasks:
+    - before: bash .gp/bash/before-tasks.sh
+    - name: MkDocs Server
+      init: |
+        npm install -g jshint
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install git+https://github.com/squidfunk/mkdocs-material-insiders.git
+    - command: |
+        mkdocs serve --dev-addr 0.0.0.0:3000
+
+vscode:
+  extensions:
+    - ms-python.python
+    - GitLab.gitlab-workflow
+    - josee9988.changelog-and-markdown-snippets
+    - DavidAnson.vscode-markdownlint
+    - darkriszty.markdown-table-prettify
+    - esbenp.prettier-vscode
+    - ms-azuretools.vscode-docker
