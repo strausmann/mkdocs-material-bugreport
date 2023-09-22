@@ -4,7 +4,7 @@ date: 2023-01-31
 description: >
   Test Post
 categories:
-  - Heads up
+  - Category 2
 authors:
   - strausmann
 tags:

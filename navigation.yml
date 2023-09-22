@@ -2,3 +2,4 @@ nav:
   - Home: index.md
   - Circulars:
       - circulars/index.md
+  - Glossary: glossary.md
